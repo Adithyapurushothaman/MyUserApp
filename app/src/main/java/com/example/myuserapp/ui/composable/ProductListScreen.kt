@@ -45,7 +45,7 @@ fun ProductListScreen(viewModel: ProductViewModel, navController: NavController)
 }
 
 @Composable
-fun ProductListItem(product: Product, onItemClick: @Composable () -> Unit) {
+fun ProductListItem(product: Product, onItemClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
