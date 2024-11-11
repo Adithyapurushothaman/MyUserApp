@@ -25,13 +25,34 @@ fun ProductDetailScreen(productId: Int, viewModel: ProductViewModel) {
         }
     }
 
-    productDetailResponse.value?.let { response ->
-        if (response.isSuccessful) {
-            response.body()?.let { productDetail ->
-                Column(Modifier.padding(16.dp)) {
-                    Text(productDetail.title, style = MaterialTheme.typography.headlineMedium)
-                    Text("Price: $${productDetail.price}", style = MaterialTheme.typography.headlineSmall)
-                    Text(productDetail.description, style = MaterialTheme.typography.bodyMedium)
+                ) {
+                    val painter = rememberAsyncImagePainter(productDetail.thumbnail)
+                    Image(
+                        painter = painter,
+                        contentDescription = productDetail.description,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(200.dp) // Adjust image height as necessary
+                            .padding(bottom = 16.dp),
+                        contentScale = ContentScale.Crop
+                    )
+
+                    Card(
+                        modifier = Modifier
+                            .padding(10.dp).align(Alignment.CenterHorizontally)
+                    ) {
+                        Text(
+                            productDetail.title,
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.headlineSmall,
+                        )
+                        Text(
+                            "Price: $${productDetail.price}",
+                            style = MaterialTheme.typography.titleSmall
+                        )
+                        Text(productDetail.description, style = MaterialTheme.typography.bodyMedium)
+                    }
+
                 }
             } ?: Text("Product details are unavailable.")
         } else {
