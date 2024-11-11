@@ -28,9 +28,9 @@ class ProductPagingSource(private val api: ProductApiService) : PagingSource<Int
             val response = api.getProducts(limit = params.loadSize, skip = currentPage * params.loadSize)
 
             LoadResult.Page(
-                data = response.body()!!.products,
+                data = response.products,
                 prevKey = if (currentPage == 0) null else currentPage - 1,
-                nextKey = if (response.body()!!.products.isEmpty()) null else currentPage + 1
+                nextKey = if (response.products.isEmpty()) null else currentPage + 1
             )
         } catch (e: Exception) {
             LoadResult.Error(e)
@@ -52,7 +52,7 @@ class ProductRepository(private val api: ProductApiService) {
     ).flow
 
     suspend fun getProducts(limit: Int, skip: Int) = apiService.api.getProducts(limit, skip)
-    suspend fun getProductDetails(id: Int): Response<ProductDetail> {
+    suspend fun getProductDetails(id: Int): ProductDetail {
         return apiService.api.getProductDetails(id)
     }
 
