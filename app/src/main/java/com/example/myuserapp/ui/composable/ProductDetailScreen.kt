@@ -10,13 +10,14 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import com.example.myuserapp.data.models.ProductDetail
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
 @Composable
 fun ProductDetailScreen(productId: Int, viewModel: ProductViewModel) {
-    val productDetailResponse = remember { mutableStateOf<Response<ProductDetail>?>(null) }
+    val productDetailResponse = remember { mutableStateOf<ProductDetail?>(null) }
     val scope = rememberCoroutineScope()
 
     LaunchedEffect(productId) {
@@ -24,6 +25,21 @@ fun ProductDetailScreen(productId: Int, viewModel: ProductViewModel) {
             productDetailResponse.value = viewModel.getProductDetails(productId)
         }
     }
+    if (productDetailResponse.value == null) {
+        // Show a loading indicator while data is being fetched
+        CircularProgressIndicator(modifier = Modifier.padding(16.dp))
+    } else {
+        val productDetail = productDetailResponse.value
+        if (productDetail != null) {
+            Column(
+                Modifier
+                    .padding(8.dp).fillMaxSize()
+
+            ) {
+                Card(
+                    modifier = Modifier
+                    .padding(8.dp)
+                    .align(Alignment.CenterHorizontally),
 
                 ) {
                     val painter = rememberAsyncImagePainter(productDetail.thumbnail)
@@ -54,9 +70,11 @@ fun ProductDetailScreen(productId: Int, viewModel: ProductViewModel) {
                     }
 
                 }
-            } ?: Text("Product details are unavailable.")
+            }
         } else {
-            Text("Failed to load product details: ${response.message()}", color = MaterialTheme.colorScheme.error)
+            Text("Product details are unavailable.")
         }
-    } ?: CircularProgressIndicator(modifier = Modifier.padding(16.dp))
+    }
 }
+
+
