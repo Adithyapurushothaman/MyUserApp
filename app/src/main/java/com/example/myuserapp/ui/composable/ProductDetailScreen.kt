@@ -34,7 +34,6 @@ fun ProductDetailScreen(productId: Int, viewModel: ProductViewModel) {
         }
     }
     if (productDetailResponse.value == null) {
-        // Show a loading indicator while data is being fetched
         CircularProgressIndicator(modifier = Modifier.padding(16.dp))
     } else {
         val productDetail = productDetailResponse.value
@@ -56,7 +55,7 @@ fun ProductDetailScreen(productId: Int, viewModel: ProductViewModel) {
                         contentDescription = productDetail.description,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(200.dp) // Adjust image height as necessary
+                            .height(200.dp)
                             .padding(bottom = 16.dp),
                         contentScale = ContentScale.Crop
                     )
