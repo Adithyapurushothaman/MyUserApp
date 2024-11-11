@@ -79,7 +79,7 @@ dependencies {
     implementation(libs.coil.compose.v200)
     implementation(libs.androidx.hilt.work)
     implementation(libs.play.services.analytics.impl)
-    implementation("androidx.work:work-runtime:2.8.0")
+    implementation(libs.androidx.work.runtime)
     annotationProcessor(libs.androidx.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
