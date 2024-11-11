@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
 import com.example.myuserapp.data.models.Product
 
 @Composable
@@ -52,7 +52,7 @@ fun ProductListItem(product: Product, onItemClick: @Composable () -> Unit) {
             .padding(8.dp)
     ) {
         Image(
-            painter = rememberImagePainter(product.thumbnail),
+            painter = rememberAsyncImagePainter(product.thumbnail),
             contentDescription = product.title,
             modifier = Modifier.size(80.dp)
         )
