@@ -25,7 +25,7 @@ fun ProductListScreen(viewModel: ProductViewModel, navController: NavController)
             val product = products[index]
             product?.let { ProductListItem(
                 product = it,
-                onItemClick = { ProductDetailScreen(productId = it.id,viewModel) }
+                onItemClick = { navController.navigate("productDetail/${it.id}") }
             ) }
         }
         products.apply {
@@ -50,6 +50,7 @@ fun ProductListItem(product: Product, onItemClick: @Composable () -> Unit) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(8.dp)
+            .clickable{onItemClick()}
     ) {
         Image(
             painter = rememberAsyncImagePainter(product.thumbnail),

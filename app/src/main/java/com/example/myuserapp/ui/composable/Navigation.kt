@@ -3,6 +3,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.myuserapp.ui.composable.ProductListScreen
+import com.example.myuserapp.ui.viewmodel.ProductViewModel
 
 @Composable
 fun AppNavHost(viewModel: ProductViewModel) {
@@ -17,3 +18,4 @@ fun AppNavHost(viewModel: ProductViewModel) {
         }
     }
 }
+
