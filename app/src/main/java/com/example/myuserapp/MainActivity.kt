@@ -1,4 +1,4 @@
-//package com.example.myuserapp
+package com.example.myuserapp//package com.example.myuserapp
 //
 //import android.os.Bundle
 //import androidx.activity.ComponentActivity
@@ -14,7 +14,7 @@
 //import com.example.myuserapp.ui.theme.MyUserAppTheme
 //
 //
-//class MainActivity : ComponentActivity() {
+//class com.example.myuserapp.MainActivity : ComponentActivity() {
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
@@ -47,15 +47,23 @@
 //    }
 //}
 //
+import AppNavHost
+import com.example.myuserapp.ui.viewmodel.ProductViewModel
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import com.example.myuserapp.ui.viewmodel.ProductViewModelFactory
 
 class MainActivity : ComponentActivity() {
-    private val productViewModel: ProductViewModel by viewModels()
+
+//    private val productViewModel: com.example.myuserapp.ui.viewmodel.ProductViewModel by viewModels()
+    private val productViewModel: ProductViewModel by viewModels {
+        ProductViewModelFactory()
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
