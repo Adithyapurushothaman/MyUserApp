@@ -55,8 +55,8 @@ fun ProductDetailScreen(productId: Int, viewModel: ProductViewModel) {
                         contentDescription = productDetail.description,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(200.dp)
-                            .padding(bottom = 16.dp),
+                            .height(500.dp)
+                            .padding(16.dp),
                         contentScale = ContentScale.Crop
                     )
 
