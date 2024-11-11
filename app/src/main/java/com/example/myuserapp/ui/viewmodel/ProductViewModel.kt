@@ -29,7 +29,7 @@ class ProductViewModel(private val repository: ProductRepository) : ViewModel() 
 //    val products = repository.getProductsPagingData().cachedIn(viewModelScope)
 
     fun setPage(page: Int) {
-        _currentPage.value = page
+        _currentPage.intValue = page
     }
 
     // Define getProductDetails to fetch product by ID
