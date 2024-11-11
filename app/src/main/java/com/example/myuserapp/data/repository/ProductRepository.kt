@@ -1,15 +1,6 @@
 package com.example.myuserapp.data.repository
 
 
-//class ProductRepository {
-//    private val apiService = RetrofitInstance
-////    private val userData = MutableStateFlow<ProductResponse?>(null)
-//
-//
-//    suspend fun getProducts(limit: Int, skip: Int) = apiService.service.getProducts(limit, skip)
-//    suspend fun getProductDetails(id: Int) = apiService.service.getProductDetails(id)
-//
-//}
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig

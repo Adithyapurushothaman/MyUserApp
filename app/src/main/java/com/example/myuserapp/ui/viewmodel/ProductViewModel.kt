@@ -71,22 +71,15 @@ import com.example.myuserapp.data.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow
 import retrofit2.Response
 
-//class ProductViewModel(private val repository: ProductRepository) : ViewModel() {
-//    val products: Flow<PagingData<Product>> = repository.getProductsPagingData().cachedIn(viewModelScope)
-//    private val _selectedProduct = MutableStateFlow<Product?>(null)
-//
-//    fun getProductDetails(id: Int) {
-//        viewModelScope.launch {
-//            val response = repository.getProductDetails(id)
-//            _selectedProduct.value = response.body()
-//        }
-//    }
-//}
+
 class ProductViewModel(private val repository: ProductRepository) : ViewModel() {
     val products: Flow<PagingData<Product>> = repository.getProductsPagingData().cachedIn(viewModelScope)
 
     // Define getProductDetails to fetch product by ID
-    suspend fun getProductDetails(productId: Int): Response<ProductDetail> {
+    suspend fun getProductDetails(productId: Int): ProductDetail {
         return repository.getProductDetails(productId)
     }
 }
+
+
+
