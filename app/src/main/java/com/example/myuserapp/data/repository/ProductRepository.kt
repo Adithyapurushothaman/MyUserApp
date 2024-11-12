@@ -51,7 +51,8 @@ class ProductRepository(private val api: ProductApiService) {
 
 //    suspend fun getProducts(limit: Int, skip: Int) = apiService.api.getProducts(limit, skip)
     suspend fun getProductDetails(id: Int): ProductDetail {
-        return apiService.api.getProductDetails(id)
+//        return apiService.api.getProductDetails(id)
+        return api.getProductDetails(id)
     }
 
 }
