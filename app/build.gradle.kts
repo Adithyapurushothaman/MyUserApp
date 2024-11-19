@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
     implementation(libs.recycler.view)
+    implementation(libs.androidx.room.runtime)
     implementation(libs.paging.runtime)
     implementation(libs.compose.ui)
     implementation(libs.compose.material)
