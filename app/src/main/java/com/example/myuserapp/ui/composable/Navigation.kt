@@ -1,5 +1,6 @@
 package com.example.myuserapp.ui.composable
 
+import ProductDetailScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
