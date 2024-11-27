@@ -1,4 +1,4 @@
-package com.example.myuserapp.ui.viewmodel//package com.example.myuserapp.ui.viewmodel
+package com.example.myuserapp.ui.viewmodel
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableIntStateOf

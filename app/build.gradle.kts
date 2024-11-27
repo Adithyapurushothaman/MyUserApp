@@ -1,8 +1,13 @@
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.compose.compiler)
 
+    id("com.google.devtools.ksp")
 }
+
+
 
 android {
     namespace = "com.example.myuserapp"
@@ -31,11 +36,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_19
-        targetCompatibility = JavaVersion.VERSION_19
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "19"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
@@ -50,7 +55,9 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
+
 }
+
 
 dependencies {
 
@@ -67,6 +74,9 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
     implementation(libs.recycler.view)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler.v250)
     implementation(libs.paging.runtime)
     implementation(libs.compose.ui)
     implementation(libs.compose.material)
@@ -80,7 +90,7 @@ dependencies {
     implementation(libs.androidx.hilt.work)
     implementation(libs.play.services.analytics.impl)
     implementation(libs.androidx.work.runtime)
-    annotationProcessor(libs.androidx.hilt.compiler)
+    ksp(libs.androidx.hilt.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
