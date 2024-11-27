@@ -22,6 +22,11 @@ fun AppNavHost(
         composable("signup") {
             SignupScreen(userViewModel,navController) { navController.navigate("login") }
         }
+        composable("updateUser"){
+            UpdatePasswordScreen(userViewModel, navController){
+                navController.navigate("login")
+            }
+        }
         composable("productList") {
             ProductListScreen(productViewModel, navController)
         }
